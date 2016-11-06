@@ -1,0 +1,83 @@
+*, *:before, *:after {
+  box-sizing:border-box;
+}
+
+@font-face {
+    font-family: "Arial";
+    src: url('../fonts/arial.ttf');
+}
+
+html {
+    font-family: 'Arial';
+}
+
+body {
+    background-color:#000000;
+    overflow:hidden;
+}
+
+a {
+    text-decoration:none;
+}
+
+/************/
+/***HEADER***/
+/************/
+
+.logo {
+    position:absolute;
+    top:1em;
+    left:2em;
+}
+
+.logo img {
+    position:relative;
+    top:0;
+    left:0;
+    display:block;
+    width:150px;
+    padding-bottom:0.6em;
+    border-bottom:1px solid #ff2b06;
+    margin-bottom:0.6em;
+}
+
+.logo p {
+    text-align:center;
+    color:#ffffff;
+    font-size:14px;
+}
+
+/*menu hamburger*/
+header img {
+    position:absolute;
+    top:1em;
+    right:2em;
+    cursor:pointer;
+}
+
+/*************/
+/***LECTEUR***/
+/*************/
+
+video {
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100vh;
+    z-index:-1;
+    cursor:pointer;
+}
+
+#play {
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);    
+    display:none;
+}
+
+
+section {
+    display:none;
+}
