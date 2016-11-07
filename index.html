@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="css/reset.css">
     <!--Introduction d'un framework vidéo, co à internet-->
     <link rel="stylesheet" href="http://vjs.zencdn.net/5.11.7/video-js.css">
+    <!--Style de base de video.js-->
+    <link href="http://vjs.zencdn.net/5.11.9/video-js.css" rel="stylesheet">
     <!--Introduction du plugin slider-->
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
     <!-- Add the slick-theme.css if you want default styling -->
@@ -32,8 +34,12 @@
     </header>
     
     <main>
-        <video id="lecteur" src="" poster="">La vidéo n'est pas lue par votre navigateur</video>
-        <button id="play"></button>
+        <video id="lecteur" controls class="video-js" poster="" data-setup="{}">
+            La vidéo n'est pas lue par votre navigateur
+            <source id="lecteurSource" src="videos/kids_computers.mp4" type='video/mp4'>
+        
+        </video>
+        <!--<button id="play"></button>-->
     </main>
     
     <section class="mainDescription">

@@ -59,7 +59,7 @@ header img {
 /***LECTEUR***/
 /*************/
 
-video {
+.video-js {
     position:absolute;
     top:0;
     left:0;
@@ -69,15 +69,67 @@ video {
     cursor:pointer;
 }
 
-#play {
+.video-js .vjs-big-play-button {
     position:absolute;
     top:50%;
     left:50%;
-    transform:translate(-50%, -50%);    
+    transform:translate(-50%, -50%);
+    border:none;
+    background-color:#ff2b06;
+    border-radius:50%;
+    height:60px;
+    width:60px;
+    line-height:60px;
+    text-align:center;
+}
+
+/*passage souris sur lecteur*/
+.video-js:hover .vjs-big-play-button {
+    /*même couleur avec transparence*/
+    background-color:rgba(255, 43, 6, 0.5);
+}
+
+/*passage souris sur bouton play/pause*/
+.video-js .vjs-big-play-button:hover {
+    background-color:#ff2b06;
+}
+
+/*contenu du bouton play/pause*/
+.video-js .vjs-big-play-button:before {
+    /*content:'';*/
+}
+
+/*si utilisateur bouge souris*/
+.vjs-user-active .vjs-big-play-button {
+    display:block;
+}
+
+.vijs-user-active .vjs-control-bar {
+    display:block;
+}
+
+/*sinon on masque bouton play et barre de lecture*/
+.vjs-user-inactive .vjs-big-play-button {
     display:none;
 }
 
+.vijs-user-inactive .vjs-control-bar {
+    display:none;
+}
 
 section {
     display:none;
+}
+
+/*************/
+/***VOLET*****/
+/*************/
+
+section {
+    background-color:rgba(255,255,255,0.5);
+    position:absolute;
+    top:0;
+    right:0;
+    width:50%;
+    height:100vh;
 }
