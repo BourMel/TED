@@ -1,38 +1,69 @@
-//questions à poser :
-//vidéo vraiment plein écran
-//#lecteurSource is not a function
-//possible de récupérer lieu, année, durée sans data-attribute ?
+//video plein écran : plugin (big video js par ex)
 
 $(document).ready(function() {
+    
    console.log('jQuery ready');
-    
-    //charge la première vidéo de la liste
-    
-    var lecteur = $('#lecteur');
-    var source = $("#lecteurSource")
+ 
+    /*le lecteur vidéo*/
+    var lecteur = $('#lecteur_html5_api');
+    /*source de la vidéo*/
+    var lecteurSource = lecteur.attr('src');
+    /*menu des vidéos*/
     var liste = $('#listeVideos div');
-    var first = liste.first();
+    
     var burger = $('#burger');
     var volet = $('section');
     
+    //pour travailler
+    volet.show();
+    
+    //première vidéo de la liste chargée
+    
+    var first = liste.first();
     var firstLien = first.attr('data-lien');
     var firstPoster = first.attr('data-poster');
-    lecteurSource.attr('src', firstLien);
-    lecteur.attr('poster', firstPoster);
+    var firstPersonne = first.find('.personne').html();
+    var firstLieu = first.find('.lieu').html();
+    var firstAnnee = first.find('.annee').html();
+    var firstDuree = first.find('.duree').html();
+    var firstPremierePhrase =first.attr('data-premierePhrase');
+    var firstDescription = first.attr('data-description');
+    firstDescription = "<span class='premierePhrase'>" + firstPremierePhrase + "</span>" + firstDescription;
     
+    lecteur.attr('src', firstLien);
+    lecteur.attr('poster', firstPoster);
+    $('.description.personne').html(firstPersonne);
+    $('.description.lieu').html(firstLieu);
+    $('.description.annee').html(firstAnnee);
+    $('.description.duree').html(firstDuree);
+    $('.description.texte').html(firstDescription);
+
     //menu hamburger
     
     var isOpen = false;
-    burger.click(function() {
+    function hamburger() {
         if(isOpen === false) {
             volet.show();
             isOpen=true;
+            burger.attr('src', './images/croix.png');
         } else {
             volet.hide();
             isOpen=false;
+            burger.attr('src', './images/burger.png');
         }
-        
-    });
+    }
+    
+    burger.click(hamburger);
+    
+    //si le volet est ouvert
+    if(isOpen === true) { // à corriger
+        //cliquer sur la vidéo le ferme
+        lecteur.click(hamburger); // à corriger
+    }
+    
+    
+    //initialisation du slider
+      $('#listeVideos').slick();
     
     //clic dans la liste = vidéo lue + fermeture burger
     
@@ -40,22 +71,32 @@ $(document).ready(function() {
         //récupération de la vidéo
         var lien = $(this).attr('data-lien');
         var poster = $(this).attr('data-poster');
-        console.log(lien);
-        console.log(poster);
+        
+        
+        //récupération des infos de description
+        var personne = $(this).find('.personne').html();
+        var lieu = $(this).find('.lieu').html();
+        var annee = $(this).find('.annee').html();
+        var duree = $(this).find('.duree').html();
         
         //récupération des attributs
         var premierePhrase = $(this).attr('data-premierePhrase');
         var description = $(this).attr('data-description');
-        //var personne = $(this).children('ul').children('.personne').html();
-        //lieu
-        //année
-        //durée
-        console.log(premierePhrase);
+        description = "<span class='premierePhrase'>" + premierePhrase + "</span>" + description;
         console.log(description);
         
-        lecteurSource.attr('src', lien);
+        //attribution au lecteur
+        lecteur.attr('src', lien);
         lecteur.attr('poster', poster);
-        //fermeture burger
-        volet.hide();
+        $('.description.personne').html(personne);
+        $('.description.lieu').html(lieu);
+        $('.description.annee').html(annee);
+        $('.description.duree').html(duree);
+        $('.description.texte').html(description);
+        
+        
+        //fermeture burger si clic vidéo
+        hamburger();
+
     });
 });

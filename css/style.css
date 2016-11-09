@@ -55,6 +55,15 @@ header img {
     cursor:pointer;
 }
 
+#burger {
+    z-index:100;
+    height:50px;
+}
+
+.vjs-poster {
+    display:none;
+}
+
 /*************/
 /***LECTEUR***/
 /*************/

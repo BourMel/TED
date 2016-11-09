@@ -18,6 +18,7 @@
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css"/>
     <link rel="stylesheet" href="css/style.css">
 </head>
+				
 
 <body>
     
@@ -34,26 +35,23 @@
     </header>
     
     <main>
-        <video id="lecteur" controls class="video-js" poster="" data-setup="{}">
+        <video id="lecteur" src="" controls class="video-js" poster="" data-setup="{}">
             La vidéo n'est pas lue par votre navigateur
-            <source id="lecteurSource" src="videos/kids_computers.mp4" type='video/mp4'>
-        
         </video>
-        <!--<button id="play"></button>-->
     </main>
     
     <section class="mainDescription">
         <article>
             <h1></h1>
-            <p class="personne"><span>By </span></p>
+            <p class="description personne"></p>
             
             <ul>
-                <li class="lieu"><span>TEDx</span></li>
-                <li class="annee"><span>Année : </span></li>
-                <li class="duree"><span>Durée : </span></li>
+                <li class="description lieu"></li>
+                <li class="description annee"></li>
+                <li class="description duree"></li>
             </ul>
             
-            <p><span>Première phrase</span> et reste du paragraphe.</p>
+            <p class='description texte'>Première phrase et reste du paragraphe.</p>
             
         </article>
         
@@ -73,7 +71,7 @@
                     </div>
                 </li>
                 <li>
-                    <div class="itemVideo" data-lien="videos/design_senses.mp4" data-poster="./images/body_canvas.jpg" data-premierePhrase="Alexa Meade adopte une approche novatrice de l'art." data-description="Une vie à faire des croquis et à tendre des toiles, très peu pour elle. Au lieu de ça, elle choisit un sujet et puis elle le peint - littéralement. Elle recouvre toute la scène : les gens, les chaises, la nourriture, etc, d'une couche de peinture qui reflète ce qui se trouve dessous. Dans cette conférence étonante, Alexa Meade montre des photos de quelques-uns de ses résultats les plus étranges, et nous fait part d'un nouveau projet impliquant des personnes, de la peinture et du lait.">
+                    <div class="itemVideo" data-lien="videos/body_canvas.mp4" data-poster="./images/body_canvas.jpg" data-lieu="<span>TED </span>Scotland" data-premierePhrase="Alexa Meade adopte une approche novatrice de l'art." data-description="Une vie à faire des croquis et à tendre des toiles, très peu pour elle. Au lieu de ça, elle choisit un sujet et puis elle le peint - littéralement. Elle recouvre toute la scène : les gens, les chaises, la nourriture, etc, d'une couche de peinture qui reflète ce qui se trouve dessous. Dans cette conférence étonante, Alexa Meade montre des photos de quelques-uns de ses résultats les plus étranges, et nous fait part d'un nouveau projet impliquant des personnes, de la peinture et du lait.">
                         <img src="./images/body_canvas_min.jpg" alt="Votre corps est ma toile : photo de la conférence">
                         <h3>Votre corps est ma toile</h3>
                         <p class="personne"><span>By </span>Alexa Meade</p>
@@ -85,7 +83,7 @@
                     </div>
                 </li>
                 <li> 
-                    <div class="itemVideo" data-lien="videos/body_canvas.mp4" data-poster="./images/design_senses.jpg" data-premierePhrase="Un bon design a un aspect sublime, oui." data-description="Mais pourquoi ne devrait-il pas être aussi sublime au toucher, à l'odorat et à l'ouïe ? Le designer Jinsop Lee (un gagnant de TED Talent Search ) partage sa théorie du design des 5 sens, avec un graphique à portée de main et quelques exemples. Son aspiration : vous inciter à remarquer les grandes expériences multi-sensorielles.">
+                    <div class="itemVideo" data-lien="videos/design_senses.mp4" data-poster="./images/design_senses.jpg" data-premierePhrase="Un bon design a un aspect sublime, oui." data-description="Mais pourquoi ne devrait-il pas être aussi sublime au toucher, à l'odorat et à l'ouïe ? Le designer Jinsop Lee (un gagnant de TED Talent Search ) partage sa théorie du design des 5 sens, avec un graphique à portée de main et quelques exemples. Son aspiration : vous inciter à remarquer les grandes expériences multi-sensorielles.">
                         <img src="./images/design_senses_min.jpg" alt="Un design pour la totalité des 5 sens : photo de la conférence">
                         <h3>Un design pour la totalité des 5 sens</h3>
                         <p class="personne"><span>By </span>Jinsop Lee</p>
