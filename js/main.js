@@ -23,6 +23,7 @@ $(document).ready(function() {
     var firstLien = first.attr('data-lien');
     var firstPoster = first.attr('data-poster');
     var firstPersonne = first.find('.personne').html();
+	var firstTitre = first.find('h3').html();
     var firstLieu = first.find('.lieu').html();
     var firstAnnee = first.find('.annee').html();
     var firstDuree = first.find('.duree').html();
@@ -33,6 +34,7 @@ $(document).ready(function() {
     lecteur.attr('src', firstLien);
     lecteur.attr('poster', firstPoster);
     $('.description.personne').html(firstPersonne);
+	$('.description.titre').html(firstTitre);
     $('.description.lieu').html(firstLieu);
     $('.description.annee').html(firstAnnee);
     $('.description.duree').html(firstDuree);
