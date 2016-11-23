@@ -15,7 +15,7 @@ $(document).ready(function() {
     var volet = $('section');
     
     //pour travailler
-    volet.show();
+   // volet.show();
     
     //première vidéo de la liste chargée
     
@@ -76,6 +76,7 @@ $(document).ready(function() {
         
         
         //récupération des infos de description
+        var titre = $(this).find('h3').html();
         var personne = $(this).find('.personne').html();
         var lieu = $(this).find('.lieu').html();
         var annee = $(this).find('.annee').html();
@@ -85,11 +86,11 @@ $(document).ready(function() {
         var premierePhrase = $(this).attr('data-premierePhrase');
         var description = $(this).attr('data-description');
         description = "<span class='premierePhrase'>" + premierePhrase + "</span>" + description;
-        console.log(description);
         
         //attribution au lecteur
         lecteur.attr('src', lien);
         lecteur.attr('poster', poster);
+        $('.description.titre').html(titre);
         $('.description.personne').html(personne);
         $('.description.lieu').html(lieu);
         $('.description.annee').html(annee);

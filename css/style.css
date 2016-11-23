@@ -1,5 +1,5 @@
 *, *:before, *:after {
-  box-sizing:border-box;
+    box-sizing:border-box;
 }
 
 @font-face {
@@ -30,9 +30,9 @@ a {
     text-decoration:none;
 }
 
-/************/
-/***HEADER***/
-/************/
+/*******************************/
+/***********HEADER**************/
+/*******************************/
 
 .logo {
     position:absolute;
@@ -74,9 +74,9 @@ header img {
     display:none;
 }
 
-/*************/
-/***LECTEUR***/
-/*************/
+/*************************************/
+/***************LECTEUR***************/
+/*************************************/
 
 .video-js {
     position:absolute;
@@ -104,7 +104,7 @@ header img {
 
 /*passage souris sur lecteur*/
 .video-js:hover .vjs-big-play-button {
-    /*même couleur avec transparence*/
+    /*mÃªme couleur avec transparence*/
     background-color:rgba(255, 43, 6, 0.5);
 }
 
@@ -140,9 +140,9 @@ section {
     display:none;
 }
 
-/*************/
-/***VOLET*****/
-/*************/
+/*************************************/
+/******************VOLET**************/
+/*************************************/
 
 section {
     background-color:rgba(255,255,255,0.5);
@@ -151,51 +151,233 @@ section {
     right:0;
     width:50%;
     height:100vh;
-	padding:7em;
-	text-align:right;
-	font-family:'Arial Black';
+    padding:7em;
+    text-align:right;
+    font-family:'Arial Black';
 }
 
 .mainDescription {
-	border-bottom:1px solid #e62b1e;
+    border-bottom:1px solid #e62b1e;
 }
 
 .mainDescription h1 {
-	color:#e62b1e;
-	font-size:3em;
-	text-transform:uppercase;
-	line-height:1.2;
+    color:#e62b1e;
+    font-size:3em;
+    text-transform:uppercase;
+    line-height:1.2;
 }
 
 .mainDescription .personne {
-	text-transform:uppercase;
-	font-size:2em;
-	line-height:2;
+    text-transform:uppercase;
+    font-size:2em;
+    line-height:2;
 }
 
-.red { 
-	color:#e62b1e;
+.red {
+    color:#e62b1e;
 }
 
 /*infos de lieu, date, durée*/
 
 .mainDescription ul {
-	display:flex;
-	justify-content:space-between;
-	margin:5em 0 2em 0;
+    display:flex;
+    justify-content:space-between;
+    margin:2em 0 2em 0;
+    height:30px;
+    line-height:30px;
 }
 
 .mainDescription li {
-	display:inline-block;
+    display:inline-block;
+}
+
+/*gestion des flèches*/
+.description.lieu::before, .description.duree::before {
+    margin:0 2em;
+    content:'';
+    background-image:url('../images/arrow_left.png');
+    width:20px;
+    height:20px;
+    background-repeat:no-repeat;
+    background-size:contain;
+    display:inline-block;
+}
+
+.description.lieu::after, .description.duree::after {
+    margin:0 2em;
+    content:'';
+    background-image:url('../images/arrow_right.png');
+    width:20px;
+    height:20px;
+    background-repeat:no-repeat;
+    background-size:contain;
+    display:inline-block;
 }
 
 /*paragraphe*/
 
 .description.texte {
-	font-family:'Arial';
-	font-size:1.5em;
+    font-family:'Arial';
+    font-size:1.5em;
+    padding-bottom:0.5em;
 }
 
 .premierePhrase {
-	font-family:'Arial Bold';
+    font-family:'Arial Bold';
+}
+
+/*choix*/
+
+/* devait afficher plusieurs vignettes, mais ici cache Ã©galement les flÃ¨ches...
+section nav {
+    overflow:hidden;
+}
+.slick-list {
+    overflow:visible;
+}
+*/
+
+/*+ de talks*/
+section nav h2 {
+    text-transform: uppercase;
+    margin:1em 0;
+}
+
+/*boutons du slider*/
+.slick-prev {
+    left:-60px;
+    /*augmente zone cliquable*/
+    height:50px;
+    width:50px;
+}
+
+.slick-prev:before {
+    content:url('../images/arrow_left.png');
+}
+
+.slick-next {
+    right:-60px;
+    /*augmente zone cliquable*/
+    height:50px;
+    width:50px;
+}
+
+.slick-next:before {
+    content:url('../images/arrow_right.png');
+}
+
+
+/*les images et leur conteneur font la mÃªme taille (positionnement texte)*/
+.itemVideo {
+    height:200px;
+    /*limite l'action du hover à l'image
+    max-width:450px;*/
+}
+
+#listeVideos img {
+    height:200px;
+    cursor:pointer;
+}
+
+.infos {
+    position:absolute;
+    bottom:0;
+    padding:10px;
+    text-align:left;
+    width:300px;
+    line-height:1.2;
+    background-color:rgba(0, 0, 0, 0.8);
+    cursor:pointer;
+}
+
+/*infos à  cacher au hover sur les vignettes*/
+.itemVideo:hover .infos /*h3, .itemVideo:hover .infos .personne*/  {
+    display:none;
+}
+
+.infos h3 {
+    color:#e62b1e;
+    text-transform:uppercase;
+    line-height:1.2;
+}
+
+.infos .personne {
+    color:#ffffff;
+}
+
+.moreInfos {
+    display:none;
+    color:#ffffff;
+    cursor:pointer;
+}
+
+/*infos Ã  montrer au hover sur les vignettes*/
+.itemVideo:hover .moreInfos {
+    display:block;
+    position:absolute;
+    bottom:0;
+    padding:10px;
+    text-align:left;
+    width:300px;
+    line-height:1.2;
+    background-color:rgba(0, 0, 0, 0.8);
+
+}
+
+/*****************************/
+/********MEDIA QUERIES********/
+/*****************************/
+
+/**********LAPTOP************/
+
+@media screen and (max-width:1400px) {
+    html {
+        font-size:10px;
+    }
+
+    /*titre vidéo lue*/
+    .mainDescription h1 {
+        font-size:2em;
+    }
+
+    .mainDescription .personne {
+        font-size:1.8em;
+    }
+
+    /*espacement flèches décoratives*/
+    .description.lieu::before, .description.duree::before {
+        margin:0 1em;
+    }
+
+    .description.lieu::after, .description.duree::after {
+        margin:0 1em;
+    }
+
+    /*taille images slider*/
+
+    .itemVideo {
+        height:140px;
+    }
+
+    #listeVideos img {
+        height:140px;
+    }
+
+    /*flèches slider*/
+    .slick-prev {
+        left:-50px;
+    }
+
+    .slick-next {
+        right:-50px;
+    }
+
+    /*taille infos sur images slider*/
+    .infos {
+        width:200px;
+    }
+
+    .itemVideo:hover .moreInfos {
+        width:200px;
+    }
 }
