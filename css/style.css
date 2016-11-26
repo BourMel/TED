@@ -78,14 +78,35 @@ header img {
 /***************LECTEUR***************/
 /*************************************/
 
+/*plein écran :
+http://www.alsacreations.com/tuto/lire/1620-une-video-arriere-plan-sur-toute-la-page.html
+*/
+
 .video-js {
-    position:absolute;
+    cursor:pointer;
+    z-index:-1;
+    /*plein écran*/
+    position: fixed;
     top:0;
     left:0;
     width:100%;
     height:100vh;
-    z-index:-1;
-    cursor:pointer;
+}
+
+/*on rend trop large OU trop haut l'élément vidéo
+centrage automatique réalisé par l'élément html vidéo*/
+
+@media (min-aspect-ratio: 16/9) {
+    .video-js {
+        height: 300%;
+        top: -100%;
+    }
+}
+@media (max-aspect-ratio: 16/9) {
+    .video-js {
+        width: 300%;
+        left: -100%;
+    }
 }
 
 .video-js .vjs-big-play-button {
@@ -136,10 +157,6 @@ header img {
     display:none;
 }
 
-section {
-    display:none;
-}
-
 /*************************************/
 /******************VOLET**************/
 /*************************************/
@@ -148,12 +165,20 @@ section {
     background-color:rgba(255,255,255,0.5);
     position:absolute;
     top:0;
-    right:0;
+    /*caché hors du viewport*/
+    right:-50%;
     width:50%;
     height:100vh;
     padding:7em;
     text-align:right;
     font-family:'Arial Black';
+    /**/
+    transition:right 1000ms ease;
+}
+
+section.active {
+    /*retour dans le viewport*/
+    right:0;
 }
 
 .mainDescription {
@@ -191,7 +216,7 @@ section {
     display:inline-block;
 }
 
-/*gestion des flèches*/
+/*gestion des flèches décoratives*/
 .description.lieu::before, .description.duree::before {
     margin:0 2em;
     content:'';
@@ -226,17 +251,6 @@ section {
     font-family:'Arial Bold';
 }
 
-/*choix*/
-
-/* devait afficher plusieurs vignettes, mais ici cache Ã©galement les flÃ¨ches...
-section nav {
-    overflow:hidden;
-}
-.slick-list {
-    overflow:visible;
-}
-*/
-
 /*+ de talks*/
 section nav h2 {
     text-transform: uppercase;
@@ -267,16 +281,21 @@ section nav h2 {
 }
 
 
-/*les images et leur conteneur font la mÃªme taille (positionnement texte)*/
+/*les images et leur conteneur = même taille (positionnement texte)*/
 .itemVideo {
     height:200px;
-    /*limite l'action du hover à l'image
-    max-width:450px;*/
+}
+
+#listeVideos {
+    margin:auto;
+    width:45%;
 }
 
 #listeVideos img {
     height:200px;
     cursor:pointer;
+    /*centre la vignette dans le slider
+    margin:auto;*/
 }
 
 .infos {
@@ -290,8 +309,8 @@ section nav h2 {
     cursor:pointer;
 }
 
-/*infos à  cacher au hover sur les vignettes*/
-.itemVideo:hover .infos /*h3, .itemVideo:hover .infos .personne*/  {
+/*infos à cacher au hover sur les vignettes*/
+.itemVideo:hover .infos {
     display:none;
 }
 
@@ -311,7 +330,7 @@ section nav h2 {
     cursor:pointer;
 }
 
-/*infos Ã  montrer au hover sur les vignettes*/
+/*infos à montrer au hover sur les vignettes*/
 .itemVideo:hover .moreInfos {
     display:block;
     position:absolute;

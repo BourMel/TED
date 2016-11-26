@@ -1,8 +1,6 @@
-//video plein écran : plugin (big video js par ex)
-
 $(document).ready(function() {
     
-   console.log('jQuery ready');
+    //VARIABLES GENERALES
  
     /*le lecteur vidéo*/
     var lecteur = $('#lecteur_html5_api');
@@ -13,11 +11,8 @@ $(document).ready(function() {
     
     var burger = $('#burger');
     var volet = $('section');
-    
-    //pour travailler
-   // volet.show();
-    
-    //première vidéo de la liste chargée
+
+    //CHARGEMENT AUTO DE LA PREMIERE VIDEO
     
     var first = liste.first();
     var firstLien = first.attr('data-lien');
@@ -40,16 +35,16 @@ $(document).ready(function() {
     $('.description.duree').html(firstDuree);
     $('.description.texte').html(firstDescription);
 
-    //menu hamburger
+    //MENU HAMBURGER
     
     var isOpen = false;
     function hamburger() {
         if(isOpen === false) {
-            volet.show();
+            volet.addClass('active');
             isOpen=true;
             burger.attr('src', './images/croix.png');
         } else {
-            volet.hide();
+            volet.removeClass('active');
             isOpen=false;
             burger.attr('src', './images/burger.png');
         }
@@ -58,22 +53,21 @@ $(document).ready(function() {
     burger.click(hamburger);
     
     //si le volet est ouvert
-    if(isOpen === true) { // à corriger
+    if(isOpen === true) {
         //cliquer sur la vidéo le ferme
-        lecteur.click(hamburger); // à corriger
+        lecteur.click(hamburger);
     }
     
+    //INITIALISATION DU SLIDER
     
-    //initialisation du slider
-      $('#listeVideos').slick();
+    $('#listeVideos').slick();
     
-    //clic dans la liste = vidéo lue + fermeture burger
+    //CHANGEMENT DE VIDEO AU CLIC DANS LE SLIDER
     
     liste.click(function () {
         //récupération de la vidéo
         var lien = $(this).attr('data-lien');
         var poster = $(this).attr('data-poster');
-        
         
         //récupération des infos de description
         var titre = $(this).find('h3').html();
@@ -97,9 +91,10 @@ $(document).ready(function() {
         $('.description.duree').html(duree);
         $('.description.texte').html(description);
         
-        
         //fermeture burger si clic vidéo
         hamburger();
+        //joue la vidéo cliquée
+        $('video')[0].play();
 
     });
 });
